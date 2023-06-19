@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link href="css/index-styles.css" rel="stylesheet"/>
+    <title>Skoczki</title>
+
+</head>
+<body>
+
+<div id="container">
+    <table>
+        <tr>
+            <th>Imie</th>
+            <th>Nazwisko</th>
+            <th>Kraj</th>
+            <th>Wiek</th>
+            <th>Rekord</th>
+        </tr>
+        <tr th:each="skiJumper : ${skiJumpers}">
+            <td th:text="${skiJumper.name}"></td>
+            <td th:text="${skiJumper.surname}"></td>
+            <td th:text="${skiJumper.country}"></td>
+            <td>
+                <span th:text="${skiJumper.age}"></span>
+                <span>lat</span>
+            </td>
+            <td>
+                <span th:text="${skiJumper.jumpRecord}"></span>
+                <span>m</span>
+            </td>
+        </tr>
+    </table>
+</div>
+
+</body>
+</html>
