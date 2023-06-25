@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Dodawanie Skoczka</title>
+</head>
+<body>
+<h1>Tworzenie nowego skoczka</h1>
+
+<form action="#" th:action="@{/add-ski-jumper}" th:object="${skiJumper}" method="post">
+    <label>Imie</label>
+    <input type="text" th:field="*{name}"/>
+    <label>Nazwisko</label>
+    <input type="text" th:field="*{surname}"/>
+    <label>Kraj</label>
+    <input type="text" th:field="*{country}"/>
+    <label>Wiek</label>
+    <input type="text" th:field="*{age}"/>
+    <label>Rekord Skoku</label>
+    <input type="text" th:field="*{jumpRecord}"/>
+    <input type="submit" value="Stworz"/>
+</form>
+
+</body>
+</html>

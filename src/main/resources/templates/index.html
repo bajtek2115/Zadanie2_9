@@ -8,6 +8,12 @@
 </head>
 <body>
 
+<h1>Skoczki</h1>
+
+<a href="/add-ski-jumper" style="margin-top: 15px">
+    <button>Dodaj nowego skoczka</button>
+</a>
+
 <div id="container">
     <table>
         <tr>
@@ -28,6 +34,11 @@
             <td>
                 <span th:text="${skiJumper.jumpRecord}"></span>
                 <span>m</span>
+            </td>
+            <td>
+                <a href="/edit-ski-jumper" style="margin-top: 15px">
+                <button>Edytuj skoczka</button>
+                </a>
             </td>
         </tr>
     </table>

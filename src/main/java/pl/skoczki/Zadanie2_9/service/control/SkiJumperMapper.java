@@ -19,5 +19,4 @@ public class SkiJumperMapper {
     private SkiJumperDTO map(SkiJumper skiJumper) {
         return new SkiJumperDTO(skiJumper.getName(), skiJumper.getSurname(), skiJumper.getCountry(), skiJumper.getAge(), skiJumper.getJumpRecord());
     }
-
 }

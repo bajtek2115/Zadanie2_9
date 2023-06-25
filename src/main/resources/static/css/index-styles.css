@@ -1,3 +1,15 @@
+h4 {
+    color: red;
+}
+
+h1 {
+    color: orange;
+}
+
+.test {
+    color: aqua;
+}
+
 table {
     font-family: arial, sans-serif;
     border-collapse: collapse;
