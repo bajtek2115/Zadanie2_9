@@ -1,6 +1,6 @@
-package pl.skoczki.Zadanie2_9.service.entity;
+package pl.skoczki.Zadanie2_9.web;
 
-public class SkiJumperDTO {
+public class SkiJumperEditRequest {
 
     private Long id;
     private String name;
@@ -9,13 +9,16 @@ public class SkiJumperDTO {
     private int age;
     private double jumpRecord;
 
-    public SkiJumperDTO(Long id, String name, String surname, String country, int age, double jumpRecord) {
+    public SkiJumperEditRequest(Long id, String name, String surname, String country, int age, double jumpRecord) {
         this.id = id;
         this.name = name;
         this.surname = surname;
         this.country = country;
         this.age = age;
         this.jumpRecord = jumpRecord;
+    }
+
+    public SkiJumperEditRequest() {
     }
 
     public Long getId() {
@@ -64,5 +67,17 @@ public class SkiJumperDTO {
 
     public void setJumpRecord(double jumpRecord) {
         this.jumpRecord = jumpRecord;
+    }
+
+    @Override
+    public String toString() {
+        return "SkiJumperEditRequest{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", surname='" + surname + '\'' +
+                ", country='" + country + '\'' +
+                ", age=" + age +
+                ", jumpRecord=" + jumpRecord +
+                '}';
     }
 }

@@ -3,12 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <link href="css/index-styles.css" rel="stylesheet"/>
-    <title>Dodawanie Skoczka</title>
+    <title>Edytowanie skoczka</title>
 </head>
 <body>
-<h1>Tworzenie nowego skoczka</h1>
 
-<form action="#" th:action="@{/add-ski-jumper}" th:object="${skiJumper}" method="post">
+<h1>Edydcja skoczka</h1>
+
+<form th:action="@{/edit-ski-jumper}" th:object="${skiJumper}" th:method="put">
+    <input type="number" hidden th:field="*{id}"/>
     <label>Imie</label>
     <input type="text" th:field="*{name}"/>
     <label>Nazwisko</label>
@@ -19,7 +21,7 @@
     <input type="text" th:field="*{age}"/>
     <label>Rekord Skoku</label>
     <input type="text" th:field="*{jumpRecord}"/>
-    <input type="submit" value="Stwórz"/>
+    <input type="submit" value="Edytuj"/>
 </form>
 
 </body>

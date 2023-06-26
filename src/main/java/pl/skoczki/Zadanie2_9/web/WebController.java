@@ -45,4 +45,24 @@ public class WebController {
         repository.save(skiJumper);
         return new RedirectView("/");
     }
+
+    @RequestMapping(value = "/edit-ski-jumper/{id}", method = RequestMethod.GET)
+    public String editSkiJumper(Model model, @PathVariable Long id) {
+        SkiJumper skiJumper = repository.findById(id).orElseThrow();
+        SkiJumperEditRequest editRequest = new SkiJumperEditRequest(skiJumper.getId(), skiJumper.getName(), skiJumper.getSurname(), skiJumper.getCountry(), skiJumper.getAge(), skiJumper.getJumpRecord());
+        model.addAttribute("skiJumper", editRequest);
+        return "edit-ski-jumper";
+    }
+
+    @RequestMapping(value = "/edit-ski-jumper", method = RequestMethod.PUT)
+    public RedirectView editSkiJumperSubmit(@ModelAttribute(value = "skiJumper") SkiJumperEditRequest editRequest) {
+        SkiJumper skiJumper = repository.findById(editRequest.getId()).orElseThrow();
+        skiJumper.setName(editRequest.getName());
+        skiJumper.setSurname(editRequest.getSurname());
+        skiJumper.setCountry(editRequest.getCountry());
+        skiJumper.setAge(editRequest.getAge());
+        skiJumper.setJumpRecord(editRequest.getJumpRecord());
+        repository.save(skiJumper);
+        return new RedirectView("/");
+    }
 }

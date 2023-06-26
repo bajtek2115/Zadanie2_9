@@ -22,6 +22,7 @@
             <th>Kraj</th>
             <th>Wiek</th>
             <th>Rekord</th>
+            <th>Akcje</th>
         </tr>
         <tr th:each="skiJumper : ${skiJumpers}">
             <td th:text="${skiJumper.name}"></td>
@@ -36,8 +37,11 @@
                 <span>m</span>
             </td>
             <td>
-                <a href="/edit-ski-jumper" style="margin-top: 15px">
-                <button>Edytuj skoczka</button>
+                <a th:href="@{/edit-ski-jumper/{id}(id=${skiJumper.id})}" style="margin-top: 15px">
+                <button>Edytuj</button>
+                </a>
+                <a href="/" style="margin-top: 15px">
+                    <button>Usuń</button>
                 </a>
             </td>
         </tr>
