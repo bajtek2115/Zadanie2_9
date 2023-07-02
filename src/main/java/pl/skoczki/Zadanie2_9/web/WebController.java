@@ -65,4 +65,10 @@ public class WebController {
         repository.save(skiJumper);
         return new RedirectView("/");
     }
+
+    @RequestMapping(value = "/delete-ski-jumper/{id}", method = RequestMethod.GET)
+    public RedirectView deleteSkiJumper(Model model, @PathVariable Long id) {
+        repository.deleteById(id);
+        return new RedirectView("/");
+    }
 }

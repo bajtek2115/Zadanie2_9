@@ -21,4 +21,8 @@ public class SkiJumperService {
         Iterable<SkiJumper> skiJumpers = repository.findAll();
         return mapper.map(skiJumpers);
     }
+
+    public void deleteSkiJumper(Long id) {
+        repository.deleteById(id);
+    }
 }

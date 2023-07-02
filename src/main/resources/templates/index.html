@@ -40,7 +40,7 @@
                 <a th:href="@{/edit-ski-jumper/{id}(id=${skiJumper.id})}" style="margin-top: 15px">
                 <button>Edytuj</button>
                 </a>
-                <a href="/" style="margin-top: 15px">
+                <a th:href="@{/delete-ski-jumper/{id}(id=${skiJumper.id})}" style="margin-top: 15px">
                     <button>Usuń</button>
                 </a>
             </td>
