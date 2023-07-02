@@ -1,9 +1,11 @@
 package pl.skoczki.Zadanie2_9.web;
 
+import pl.skoczki.Zadanie2_9.service.entity.Country;
+
 public class SkiJumperCreateRequest {
     private String name;
     private String surname;
-    private String country;
+    private Country country;
     private int age;
     private double jumpRecord;
 
@@ -26,11 +28,11 @@ public class SkiJumperCreateRequest {
         this.surname = surname;
     }
 
-    public String getCountry() {
+    public Country getCountry() {
         return country;
     }
 
-    public void setCountry(String country) {
+    public void setCountry(Country country) {
         this.country = country;
     }
 

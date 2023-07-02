@@ -27,7 +27,7 @@
         <tr th:each="skiJumper : ${skiJumpers}">
             <td th:text="${skiJumper.name}"></td>
             <td th:text="${skiJumper.surname}"></td>
-            <td th:text="${skiJumper.country}"></td>
+            <td th:text="${skiJumper.country.displayName}"></td>
             <td>
                 <span th:text="${skiJumper.age}"></span>
                 <span>lat</span>

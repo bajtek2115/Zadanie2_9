@@ -5,11 +5,11 @@ public class SkiJumperDTO {
     private Long id;
     private String name;
     private String surname;
-    private String country;
+    private Country country;
     private int age;
     private double jumpRecord;
 
-    public SkiJumperDTO(Long id, String name, String surname, String country, int age, double jumpRecord) {
+    public SkiJumperDTO(Long id, String name, String surname, Country country, int age, double jumpRecord) {
         this.id = id;
         this.name = name;
         this.surname = surname;
@@ -42,11 +42,11 @@ public class SkiJumperDTO {
         this.surname = surname;
     }
 
-    public String getCountry() {
+    public Country getCountry() {
         return country;
     }
 
-    public void setCountry(String country) {
+    public void setCountry(Country country) {
         this.country = country;
     }
 

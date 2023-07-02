@@ -12,11 +12,11 @@ public class SkiJumper {
 
     private String name;
     private String surname;
-    private String country;
+    private Country country;
     private int age;
     private double jumpRecord;
 
-    public SkiJumper(String name, String surname, String country, int age, double jumpRecord) {
+    public SkiJumper(String name, String surname, Country country, int age, double jumpRecord) {
         this.name = name;
         this.surname = surname;
         this.country = country;
@@ -51,11 +51,11 @@ public class SkiJumper {
         this.surname = surname;
     }
 
-    public String getCountry() {
+    public Country getCountry() {
         return country;
     }
 
-    public void setCountry(String country) {
+    public void setCountry(Country country) {
         this.country = country;
     }
 
