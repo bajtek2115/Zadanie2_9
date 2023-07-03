@@ -8,9 +8,12 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.view.RedirectView;
 import pl.skoczki.Zadanie2_9.service.boundary.SkiJumperRepository;
 import pl.skoczki.Zadanie2_9.service.boundary.SkiJumperService;
+import pl.skoczki.Zadanie2_9.service.entity.Country;
 import pl.skoczki.Zadanie2_9.service.entity.SkiJumper;
+import pl.skoczki.Zadanie2_9.service.entity.SkiJumperDTO;
 import pl.skoczki.Zadanie2_9.web.SkiJumperCreateRequest;
 
+import java.util.List;
 import java.util.Optional;
 
 @Controller
@@ -70,5 +73,12 @@ public class WebController {
     public RedirectView deleteSkiJumper(Model model, @PathVariable Long id) {
         repository.deleteById(id);
         return new RedirectView("/");
+    }
+
+    @RequestMapping(value = "/search-by-country", method = RequestMethod.GET)
+    public String searchByCountry(Model model, @RequestParam Country country) {
+        List<SkiJumperDTO> skiJumperDTOS = service.searchByCountry(country);
+        model.addAttribute("skiJumpers", skiJumperDTOS);
+        return "index";
     }
 }

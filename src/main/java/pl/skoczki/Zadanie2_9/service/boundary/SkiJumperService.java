@@ -3,6 +3,7 @@ package pl.skoczki.Zadanie2_9.service.boundary;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import pl.skoczki.Zadanie2_9.service.control.SkiJumperMapper;
+import pl.skoczki.Zadanie2_9.service.entity.Country;
 import pl.skoczki.Zadanie2_9.service.entity.SkiJumper;
 import pl.skoczki.Zadanie2_9.service.entity.SkiJumperDTO;
 
@@ -24,5 +25,10 @@ public class SkiJumperService {
 
     public void deleteSkiJumper(Long id) {
         repository.deleteById(id);
+    }
+
+    public List<SkiJumperDTO> searchByCountry(Country country) {
+        List<SkiJumper> skiJumpers = repository.findByCountry(country);
+        return mapper.map(skiJumpers);
     }
 }
