@@ -28,6 +28,9 @@ public class SkiJumperService {
     }
 
     public List<SkiJumperDTO> searchByCountry(Country country) {
+        if (country == null) {
+            return getAll();
+        }
         List<SkiJumper> skiJumpers = repository.findByCountry(country);
         return mapper.map(skiJumpers);
     }

@@ -14,8 +14,10 @@
     <button>Dodaj nowego skoczka</button>
 </a>
 
-<form action="/search-by-country" method="GET" style="margin-top: 15px">
+<form action="/search-by-country" th:object="${skiJumper}" method="GET" style="margin-top: 15px">
+    <h4>Wyszukaj po narodowości: </h4>
     <select name="country">
+        <option value="">Wszystkie</option>
         <option value="POLAND">Polska</option>
         <option value="CZECH_REPUBLIC">Czechy</option>
         <option value="NORWAY">Norwegia</option>
@@ -25,9 +27,10 @@
         <option value="ITALY">Włochy</option>
         <option value="AUSTRIA">Austria</option>
         <option value="SWITZERLAND">Szwajcaria</option>
+        <option value="SLOVENIA">Słowenia</option>
         <input type="submit" value="Szukaj"/>
-    </select>>
-</form>>
+    </select>
+</form>
 
 <div id="container">
     <table>

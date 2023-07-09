@@ -76,7 +76,7 @@ public class WebController {
     }
 
     @RequestMapping(value = "/search-by-country", method = RequestMethod.GET)
-    public String searchByCountry(Model model, @RequestParam Country country) {
+    public String searchByCountry(Model model, @RequestParam(name = "country", required = false) Country country) {
         List<SkiJumperDTO> skiJumperDTOS = service.searchByCountry(country);
         model.addAttribute("skiJumpers", skiJumperDTOS);
         return "index";
