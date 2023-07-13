@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.view.RedirectView;
 import pl.skoczki.Zadanie2_9.service.boundary.SkiJumperRepository;
 import pl.skoczki.Zadanie2_9.service.boundary.SkiJumperService;
+import pl.skoczki.Zadanie2_9.service.control.DictionaryMapper;
 import pl.skoczki.Zadanie2_9.service.entity.Country;
 import pl.skoczki.Zadanie2_9.service.entity.SkiJumper;
 import pl.skoczki.Zadanie2_9.service.entity.SkiJumperDTO;
@@ -25,15 +26,20 @@ public class WebController {
     @Autowired
     private SkiJumperRepository repository;
 
+    @Autowired
+    private DictionaryMapper dictionaryMapper;
+
     @RequestMapping(value = "/")
     public String index(Model model) {
         model.addAttribute("skiJumpers", service.getAll());
+        model.addAttribute("countriesDict", dictionaryMapper.mapCountries(Country.values()));
         return "index";
     }
 
     @RequestMapping(value = "/add-ski-jumper", method = RequestMethod.GET)
     public String addSkiJumper(Model model) {
         model.addAttribute("skiJumper", new SkiJumperCreateRequest());
+        model.addAttribute("countriesDict", dictionaryMapper.mapCountries(Country.values()));
         return "add-ski-jumper";
     }
     
@@ -54,6 +60,7 @@ public class WebController {
         SkiJumper skiJumper = repository.findById(id).orElseThrow();
         SkiJumperEditRequest editRequest = new SkiJumperEditRequest(skiJumper.getId(), skiJumper.getName(), skiJumper.getSurname(), skiJumper.getCountry(), skiJumper.getAge(), skiJumper.getJumpRecord());
         model.addAttribute("skiJumper", editRequest);
+        model.addAttribute("countriesDict", dictionaryMapper.mapCountries(Country.values()));
         return "edit-ski-jumper";
     }
 
@@ -70,7 +77,7 @@ public class WebController {
     }
 
     @RequestMapping(value = "/delete-ski-jumper/{id}", method = RequestMethod.GET)
-    public RedirectView deleteSkiJumper(Model model, @PathVariable Long id) {
+    public RedirectView deleteSkiJumper(@PathVariable Long id) {
         repository.deleteById(id);
         return new RedirectView("/");
     }
@@ -79,6 +86,7 @@ public class WebController {
     public String searchByCountry(Model model, @RequestParam(name = "country", required = false) Country country) {
         List<SkiJumperDTO> skiJumperDTOS = service.searchByCountry(country);
         model.addAttribute("skiJumpers", skiJumperDTOS);
+        model.addAttribute("countriesDict", dictionaryMapper.mapCountries(Country.values()));
         return "index";
     }
 }

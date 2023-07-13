@@ -15,16 +15,7 @@
     <input type="text" th:field="*{surname}"/>
     <label>Kraj</label>
     <select th:field="*{country}">
-        <option value="POLAND">Polska</option>
-        <option value="CZECH_REPUBLIC">Czechy</option>
-        <option value="NORWAY">Norwegia</option>
-        <option value="FINLAND">Finlandia</option>
-        <option value="GERMANY">Niemcy</option>
-        <option value="JAPAN">Japonia</option>
-        <option value="ITALY">Włochy</option>
-        <option value="AUSTRIA">Austria</option>
-        <option value="SWITZERLAND">Szwajcaria</option>
-        <option value="SLOVENIA">Słowenia</option>
+        <option th:each="country : ${countriesDict}" th:value="${country.value}" th:text="${country.name}"></option>
     </select>
     <label>Wiek</label>
     <input type="text" th:field="*{age}"/>
